@@ -1,17 +1,15 @@
 import 'package:favourite_screen_app/provider/favourite_provider.dart';
-import 'package:favourite_screen_app/screen/myfavourite_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FavouriteScreen extends StatefulWidget {
-  const FavouriteScreen({super.key});
+class MyfavouriteScreen extends StatefulWidget {
+  const MyfavouriteScreen({super.key});
 
   @override
-  State<FavouriteScreen> createState() => _FavouriteScreenState();
+  State<MyfavouriteScreen> createState() => _MyfavouriteScreenState();
 }
 
-class _FavouriteScreenState extends State<FavouriteScreen> {
-  List<int> selectItem = [];
+class _MyfavouriteScreenState extends State<MyfavouriteScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<FavouriteProvider>(context);
@@ -37,7 +35,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 100,
+                itemCount: provider.selectItem.length,
                 itemBuilder: (context, index) {
                   return Consumer<FavouriteProvider>(
                       builder: (context, value, child) {
